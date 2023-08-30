@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+@model IEnumerable<MovieModel>
+
+<head>
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+
+<section class="movies_list_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="slider_wrapper">
+                    <h1 class="carousel_title">Action</h1>
+                    <ul class="movie_carousel">
+                        @foreach (var movie in Model.Where(x => x.Genre == "Action"))
+                        {
+                            var imagePath = "~/Posters/Movies/" + (movie.Id + ".jpg");
+                            <a asp-controller="Content" asp-action="Movie" asp-route-id="@movie.Id" class="movie_card">
+                                <img class="movie_image" src="@imagePath" asp-append-version="true">
+                                <div class="movie_body">
+                                    <div class="movie_btns">
+                                        <i class="watchLaterBtn bi bi-bookmark"></i>
+                                        <i class="addFavBtn bi bi-heart"></i>
+                                    </div>
+                                    <div class="movie_info">
+                                        <h2>@movie.Rating</h2>
+                                        <h3>@movie.Name</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                    </ul>
+                </div>
+                <div class="slider_wrapper">
+                    <h1 class="carousel_title">Drama</h1>
+                    <ul class="movie_carousel">
+                        @foreach (var movie in Model.Where(x => x.Genre == "Drama"))
+                        {
+                            var imagePath = "~/Posters/Movies/" + (movie.Id + ".jpg");
+                            <a asp-controller="Content" asp-action="Movie" asp-route-id="@movie.Id" class="movie_card">
+                                <img class="movie_image" src="@imagePath" asp-append-version="true">
+                                <div class="movie_body">
+                                    <div class="movie_btns">
+                                        <i class="watchLaterBtn bi bi-bookmark"></i>
+                                        <i class="addFavBtn bi bi-heart"></i>
+                                    </div>
+                                    <div class="movie_info">
+                                        <h2>@movie.Rating</h2>
+                                        <h3>@movie.Name</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                    </ul>
+                </div>
+                <div class="slider_wrapper">
+                    <h1 class="carousel_title">Comedy</h1>
+                    <ul class="movie_carousel">
+                        @foreach (var movie in Model.Where(x => x.Genre == "Comedy"))
+                        {
+                            var imagePath = "~/Posters/Movies/" + (movie.Id + ".jpg");
+                            <a asp-controller="Content" asp-action="Movie" asp-route-id="@movie.Id" class="movie_card">
+                                <img class="movie_image" src="@imagePath" asp-append-version="true">
+                                <div class="movie_body">
+                                    <div class="movie_btns">
+                                        <i class="watchLaterBtn bi bi-bookmark"></i>
+                                        <i class="addFavBtn bi bi-heart"></i>
+                                    </div>
+                                    <div class="movie_info">
+                                        <h2>@movie.Rating</h2>
+                                        <h3>@movie.Name</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                    </ul>
+                </div>
+                <div class="slider_wrapper">
+                    <h1 class="carousel_title">Sci-Fi</h1>
+                    <ul class="movie_carousel">
+                        @foreach(var movie in Model.Where(x => x.Genre == "Sci-Fi"))
+                        {
+                            var imagePath = "~/Posters/Movies/" + (movie.Id + ".jpg");
+                            <a asp-controller="Content" asp-action="Movie" asp-route-id="@movie.Id" class="movie_card">
+                                <img class="movie_image" src="@imagePath" asp-append-version="true">
+                                <div class="movie_body">
+                                    <div class="movie_btns">
+                                        <i class="watchLaterBtn bi bi-bookmark"></i>
+                                        <i class="addFavBtn bi bi-heart"></i>
+                                    </div>
+                                    <div class="movie_info">
+                                        <h2>@movie.Rating</h2>
+                                        <h3>@movie.Name</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
